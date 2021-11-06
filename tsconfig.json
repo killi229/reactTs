@@ -1,5 +1,9 @@
 {
+  "_commonExplain229":{
+    "baseUrl": "默认绝对路径会从 ./src 文件下获取"
+  },
   "compilerOptions": {
+    "baseUrl": "./src",
     "target": "es5",
     "lib": [
       "dom",

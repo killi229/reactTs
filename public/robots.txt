@@ -1,3 +1,5 @@
+# 配置搜索引擎爬虫, 配置搜索引擎如何对待项目
+# Disallow 不允许搜索引擎访问项目那些文件
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Disallow:
