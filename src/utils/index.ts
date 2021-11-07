@@ -1,7 +1,7 @@
 // 判断value是否是0
 import { useEffect, useState } from "react";
 
-export const isFalsy = (value: any) => (value === 0 ? false : !value);
+export const isFalsy = (value: unknown) => (value === 0 ? false : !value);
 
 // 筛选对象空值
 export const cleanObject = (object: object) => {
@@ -27,7 +27,7 @@ export const useMount = (callback: () => void) => {
 };
 
 // 一定时间内多次操作, 只执行最后一次, 防抖
-export const useDebounce = (value: any, delay?: number) => {
+export const useDebounce = <T>(value: T, delay?: number) => {
   const [debounceValue, setDebounceValue] = useState(value);
 
   useEffect(() => {
