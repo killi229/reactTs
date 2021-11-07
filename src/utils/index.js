@@ -25,14 +25,12 @@ export const useMount = (callback) => {
 };
 
 // 一定时间内多次操作, 只执行最后一次, 防抖
-// eslint-disable-line react-hooks/exhaustive-deps
 export const useDebounce = (value, delay) => {
   const [debounceValue, setDebounceValue] = useState(value);
 
   useEffect(() => {
-    const timeout = setTimeout(() => setDebounceValue(value), delay);
-
-    return () => clearTimeout(timeout);
+    const timeout = setTimeout(() => setDebounceValue(value), delay); // 每次在value变化以后, 设置一个定时器
+    return () => clearTimeout(timeout); // 每次在上一个useEffect处理以后再运行
   }, [value, delay]);
 
   return debounceValue;
