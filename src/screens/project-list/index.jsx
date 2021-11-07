@@ -2,7 +2,7 @@ import React from "react";
 import {List} from "./list";
 import {SearchPanel} from "./search-panel";
 import {useEffect, useState} from "react";
-import {cleanObject} from "../../utils";
+import {cleanObject, useDebounce, useMount} from "../../utils";
 import qs from "qs";
 
 const apiUrl = process.env.REACT_APP_API_URL
@@ -12,25 +12,26 @@ export const ProjectListScreen = () => {
         name: "", // 搜索名
         personId: ""  // id
     })
-    const [list, setList] = useState([])
-    const [users, setUsers] = useState([])  // 用户列表
+    const [list, setList] = useState([])  // 数据名称列表
+    const [users, setUsers] = useState([])  // 负责人列表
+    const debounceParam = useDebounce(param, 200)  // 防抖操作
+
 
     useEffect(() => {
-        fetch(`${apiUrl}/projects?${qs.stringify(cleanObject(param))}`).then(async res => {
+        fetch(`${apiUrl}/projects?${qs.stringify(cleanObject(debounceParam))}`).then(async res => {
             if(res.ok){
                 setList(await res.json())
             }
         })
-        console.log('adasdasd')
-    }, [param])
+    }, [debounceParam])
 
-    useEffect(() => {
+    useMount(() => {
         fetch(`${apiUrl}/users`).then(async res => {
             if(res.ok){
                 setUsers(await res.json())
             }
         })
-    }, [])  // [] 页面加载的时候执行一次
+    })  // [] 页面加载的时候执行一次
 
 
     return <div>
