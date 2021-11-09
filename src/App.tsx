@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <LoginScreens />
-      <ProjectListScreen />
+      {/*<ProjectListScreen />*/}
     </div>
   );
 }

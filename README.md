@@ -10,5 +10,9 @@ https://github.com/conventional-changelog/commitlint
 
 https://www.notion.so/React-491ad0643476437cafde50bee4dde6ed
 
+# imooc-jira-tool 分布式后端服务
+
+https://github.com/sindu12jun/jira-dev-tool
+
 #other
 unknown 类型不能赋给任何值!!!
