@@ -1,8 +1,9 @@
 import React, { FormEvent } from "react";
-import { useAuth } from "../../context/auth-context";
+import { useAuth } from "../context/auth-context";
 
-export const LoginScreens = () => {
-  const { user, login } = useAuth();
+// 登陆界面
+export const LoginScreen = () => {
+  const { login } = useAuth();
 
   // 点击登陆
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
@@ -17,7 +18,6 @@ export const LoginScreens = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      {user ? <div>登录成功{user?.name}</div> : "还没登录"}
       <div>
         <label htmlFor="username">用户名</label>
         <input id={"username"} type="text" />
